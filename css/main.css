@@ -801,8 +801,10 @@ img {
 .Download-section .browser-installtion {
   display: flex;
   justify-content: space-evenly;
-  height: 427px;
-  gap: 20px;
+  height: 480px;
+  gap: 0px;
+    max-width: 1000px;
+    margin: auto;
 }
 .Download-section .browser-installtion .browser {
   display: flex;
@@ -967,6 +969,7 @@ img {
   z-index: 20;
   outline: none;
 }
+
 .StayUpToDate .container div form button {
   width: 126px;
   position: relative;

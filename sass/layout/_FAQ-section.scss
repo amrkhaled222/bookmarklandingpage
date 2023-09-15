@@ -1,0 +1,87 @@
+@use "../abstract" as *;
+
+.FAQ {
+	&__Questions {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 2rem;
+
+		&__question {
+			border-top: 1px solid $GrayishBlue;
+			&:last-of-type {
+				border-bottom: 1px solid $GrayishBlue;
+			}
+			width: 540px;
+			.row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				cursor: pointer;
+				&:hover h3 {
+					color: $SoftRed;
+				}
+				h3 {
+					color: #242a45;
+					text-align: center;
+					font-family: Rubik;
+					font-size: 18px;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 32px;
+				}
+
+				button {
+					background-color: transparent;
+					padding-right: 10px;
+					border: none;
+					cursor: pointer;
+					transition: 0.5s ease-in-out;
+
+					color: $SoftBlue;
+					&.updownbutton {
+						transform: rotate(180deg);
+
+						color: $SoftRed;
+					}
+				}
+			}
+			.hiddendiv {
+				overflow: hidden;
+				height: fit-content;
+				transition: 0.5s linear;
+				max-height: 0;
+			}
+			.showdiv {
+				max-height: 400px;
+			}
+			p {
+				font-size: 16px;
+				opacity: 0.75;
+				line-height: 36px;
+				letter-spacing: 0.15px;
+				margin-bottom: 30px;
+			}
+		}
+		& > button {
+			margin-top: 50px;
+		}
+	}
+}
+@include breakpoints("mobile") {
+	.FAQ {
+		&__Questions {
+			&__question {
+				width: 313px;
+				&:first-of-type {
+					border-top: none;
+				}
+				.row {
+					h3 {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+	}
+}

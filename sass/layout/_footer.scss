@@ -1,0 +1,87 @@
+@use "../abstract" as *;
+footer {
+	background-color: #242a45;
+	.container {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 1rem;
+		padding-top: 2rem;
+		.navigation-footer {
+			display: flex;
+			gap: 30px;
+			.footer-logo {
+				color: white;
+			}
+			&--lists {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				ul {
+					gap: 20px;
+					align-items: center;
+					text-transform: uppercase;
+					li {
+						color: white;
+						font-size: 13px;
+						font-weight: 400;
+						line-height: 17px;
+						letter-spacing: 1.5px;
+						cursor: pointer;
+						&:hover {
+							color: #fa5959;
+						}
+					}
+				}
+			}
+		}
+		.frontendmentor-identifcation {
+			display: flex;
+
+			p {
+				margin: 50px auto 0;
+				color: white;
+				a {
+					color: white;
+					&:hover {
+						color: $SoftRed;
+					}
+				}
+			}
+		}
+	}
+}
+@include breakpoints("mobile") {
+	footer {
+		.container {
+			.navigation-footer {
+				flex-direction: column;
+				align-items: center;
+				&--lists {
+					flex-direction: column;
+					align-items: center;
+					gap: 30px;
+					ul {
+						&:first-of-type {
+							flex-direction: column;
+							align-items: center;
+						}
+						&:last-of-type {
+							gap: 30px;
+						}
+						li {
+							font-size: 15px;
+						}
+					}
+				}
+			}
+			.frontendmentor-identifcation {
+				p {
+					font-size: 10px;
+				}
+				a {
+					font-size: 10px;
+				}
+			}
+		}
+	}
+}

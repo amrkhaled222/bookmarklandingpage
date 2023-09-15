@@ -1,0 +1,235 @@
+@use "../abstract" as var;
+.layout {
+	display: none;
+}
+header {
+	nav {
+		.container {
+			display: flex;
+			justify-content: space-between;
+			.logo {
+				&__circle {
+					fill: #5267df;
+				}
+				&__flag {
+					fill: white;
+				}
+			}
+			.burgericon {
+				display: none;
+				cursor: pointer;
+			}
+			.xIcon {
+				cursor: pointer;
+			}
+			ul {
+				gap: 20px;
+				align-items: center;
+				text-transform: uppercase;
+				li {
+					color: #242a45;
+					font-size: 13px;
+					font-weight: 400;
+					line-height: 17px;
+					letter-spacing: 1.5px;
+					cursor: pointer;
+					&:not(:last-of-type):hover {
+						color: #fa5959;
+					}
+				}
+				li:last-of-type {
+					button {
+						height: 40px;
+						width: 111px;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+	}
+
+	& > .container {
+		display: flex;
+		padding-right: 2rem;
+		padding-bottom: 4rem;
+		justify-content: space-between;
+		overflow: hidden;
+		h1 {
+			color: #242a45;
+			font-family: Rubik;
+			font-size: 48px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 52px; /* 108.333% */
+			letter-spacing: -0.15px;
+		}
+		button:first-of-type {
+			margin: 0 12px 0 0;
+		}
+		.description-card {
+			flex-basis: 50%;
+			p {
+				padding: 0 74px 15px 0;
+				text-align: left;
+			}
+		}
+		.image-card {
+			flex-basis: 50%;
+			display: flex;
+			justify-content: flex-end;
+			position: relative;
+			img {
+				width: 100%;
+				height: 100%;
+				z-index: -2;
+			}
+			&::after {
+				content: "";
+				background-color: #5267df;
+				width: 173%;
+				height: 92%;
+				position: absolute;
+				border-radius: 342px;
+				top: 0;
+				left: 0;
+				z-index: -3;
+				transform: translate(13%, 26%);
+			}
+		}
+	}
+}
+@include var.breakpoints("Large") {
+	header {
+		& > .container {
+			padding-right: 3rem;
+			padding-bottom: 4rem;
+			.image-card {
+				&::after {
+					transform: translate(14%, 27%);
+				}
+			}
+		}
+	}
+}
+@include var.breakpoints("med") {
+	header {
+		& > .container {
+			padding-right: 1rem;
+			padding-bottom: 4rem;
+			.image-card {
+				&::after {
+					transform: translate(14%, 27%);
+				}
+			}
+		}
+	}
+}
+
+@include var.breakpoints("mobile") {
+	.overlay {
+		display: flex;
+		position: fixed;
+		justify-content: center;
+		align-items: flex-end;
+		padding: 2rem;
+		width: 100%;
+		height: 100%;
+		opacity: 0.95;
+		background: #242a45;
+		z-index: 1000;
+		backdrop-filter: blur(16.309690475463867px);
+		ul {
+			gap: 20px;
+			align-items: center;
+			li {
+				cursor: pointer;
+				color: white;
+				&:hover {
+					color: var.$SoftRed;
+				}
+			}
+		}
+	}
+	header {
+		nav {
+			z-index: 500000;
+			position: relative;
+			.container {
+				position: relative;
+				overflow: initial;
+				.logo-overlay {
+					.logo__circle {
+						fill: white;
+					}
+					.logo__flag {
+						fill: #242a45;
+					}
+					.logo__bookmark {
+						fill: white;
+					}
+					z-index: 1;
+				}
+				ul {
+					z-index: 1;
+					flex-direction: column;
+					width: 90%;
+					position: absolute;
+					max-width: 500px;
+					left: 50%;
+					top: 100px;
+					transform: translate(-50%, 0);
+					li {
+						color: white;
+						padding: 15px;
+						font-size: 20px;
+						width: 100%;
+						line-height: 17px;
+						letter-spacing: 2.308px;
+
+						text-align: center;
+
+						&:first-of-type {
+							border-top: 0.2px solid #ffffff4a;
+						}
+						&:not(:last-of-type) {
+							border-bottom: 0.2px solid #ffffff4a;
+						}
+						&:last-of-type {
+							width: 100%;
+							button {
+								border: 1px solid white;
+								background-color: transparent;
+								color: white;
+								width: 100%;
+								font-size: 20px;
+								line-height: 17px;
+								letter-spacing: 2.308px;
+							}
+						}
+					}
+				}
+				.burgericon {
+					display: block;
+				}
+			}
+		}
+		& > .container {
+			padding: 2rem 1rem;
+			flex-direction: column-reverse;
+			gap: 50px;
+			.description-card {
+				text-align: center;
+				h1 {
+					font-size: 30px;
+				}
+				p {
+					text-align: center;
+					padding: 0 13px;
+				}
+				button {
+					width: 151px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,131 @@
+@use "../abstract" as *;
+.feature {
+	&-type {
+		display: flex;
+		gap: 30px;
+		width: fit-content;
+		justify-content: center;
+		margin: 20px auto;
+		border-bottom: 1px solid $GrayishBlue;
+		button {
+			background-color: transparent;
+			border: none;
+			padding: 0 15px 15px;
+			font-size: 16px;
+			text-align: center;
+			position: relative;
+			opacity: 0.75;
+			cursor: pointer;
+			&:hover {
+				color: $SoftRed;
+			}
+			&.onclick {
+				opacity: 1;
+				&::before {
+					position: absolute;
+					content: "";
+					width: 110%;
+					border-bottom: 3px solid $SoftRed;
+					bottom: 0;
+					left: 50%;
+					transform: translate(-50%, 0);
+				}
+			}
+		}
+	}
+	&-card {
+		margin-top: 70px;
+		display: flex;
+
+		&__img {
+			flex-basis: 48%;
+			position: relative;
+			height: fit-content;
+			&::after {
+				content: "";
+				background-color: #5267df;
+				width: 186.5%;
+				height: 97%;
+				position: absolute;
+				border-radius: 342px;
+				top: 0;
+				left: 0;
+				z-index: -3;
+				transform: translate(-52%, 27%);
+			}
+		}
+		&.easy-sharing {
+			.feature-card__img {
+				&::after {
+					height: 90%;
+					transform: translate(-52%, 25%);
+				}
+			}
+		}
+		&.speedy-searching {
+			.feature-card__img {
+				&::after {
+					transform: translate(-52%, 23%);
+					width: 174.5%;
+					height: 88%;
+				}
+			}
+		}
+
+		&__description {
+			flex-basis: 50%;
+			padding: 5% 0 0 10%;
+			display: flex;
+			flex-direction: column;
+			h2 {
+				width: fit-content;
+			}
+		}
+	}
+}
+
+@include breakpoints("mobile") {
+	.feature {
+		&-type {
+			flex-direction: column;
+			align-items: center;
+			border-bottom: none;
+			border-top: 0.5px solid $GrayishBlue;
+			width: 311px;
+			padding: 20px 0;
+
+			button {
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: -0.5px;
+					width: 311px;
+					left: 50%;
+					transform: translate(-50%, 0);
+					height: 0.5px;
+					background-color: $GrayishBlue;
+				}
+				&::before {
+					width: 70% !important;
+				}
+			}
+			p {
+				padding: 0 10px;
+			}
+		}
+		&-card {
+			flex-direction: column;
+
+			&__description {
+				padding: 27% 0 0;
+				align-items: center;
+				gap: 20px;
+				p {
+					margin-top: 0;
+					text-align: center;
+					padding: 0 17px;
+				}
+			}
+		}
+	}
+}

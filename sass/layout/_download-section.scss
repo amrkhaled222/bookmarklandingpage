@@ -1,0 +1,62 @@
+@use "../abstract" as *;
+@use "../components" as *;
+
+.Download-section {
+	.container {
+		padding-bottom: 3rem;
+	}
+	.browser-installtion {
+		display: flex;
+		justify-content: space-evenly;
+		height: 427px;
+		gap: 20px;
+		.browser {
+			display: flex;
+			justify-content: space-evenly;
+			padding: 20px;
+
+			flex-direction: column;
+			align-items: center;
+			background-image: url(../images/bg-dots.svg);
+			@extend %background;
+			border-radius: 15px;
+			height: 371px;
+			background: #fff;
+			box-shadow: 0px 10px 20px -5px rgba(73, 93, 207, 0.2);
+			img {
+				width: fit-content;
+			}
+			h2 {
+				font-size: 20px;
+				margin: 0;
+			}
+			p {
+				margin: 0;
+			}
+			&-Firefox {
+				align-self: center;
+			}
+			&-Opera {
+				align-self: flex-end;
+			}
+		}
+	}
+}
+@include breakpoints("mobile") {
+	.Download-section {
+		.browser-installtion {
+			flex-direction: column;
+			height: inherit;
+			gap: 65px;
+			.browser {
+				width: fit-content;
+				&-chrome {
+					align-self: center;
+				}
+				&-Opera {
+					align-self: center;
+				}
+			}
+		}
+	}
+}
